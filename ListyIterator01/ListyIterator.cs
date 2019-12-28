@@ -1,10 +1,11 @@
 ﻿namespace ListyIterator01
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Text;
 
-    public class ListyIterator<T>
+    public class ListyIterator<T> : IEnumerable<T>
     {
         private T[] elements;
         private int index;
@@ -41,5 +42,17 @@
             throw new InvalidOperationException("Invalid Operation!");
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < this.elements.Length; i++)
+            {
+                yield return this.elements[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

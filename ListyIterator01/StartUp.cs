@@ -34,6 +34,9 @@
                             Console.WriteLine(e.Message); ;
                         }
                         break;
+                    case "PrintAll":
+                        Console.WriteLine(string.Join(" ", list));
+                        break;
 
                 }
 
